@@ -5,6 +5,11 @@
     var icon = document.createElement('img')
     icon.src = authorIconUrl
     document.body.appendChild(icon)
+    icon.style.position = 'fixed'
+    icon.style.width = '30px'
+    icon.style.height = '30px'
+    icon.style.zIndex = '10000'
+    icon.style.pointerEvents = 'none'
     
     var subscribers = Array.prototype.slice.apply(document.querySelectorAll('.subscriber > img'))
     .map(function (subscriber) {
