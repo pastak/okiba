@@ -1,6 +1,11 @@
 (function(){
   document.addEventListener('DOMContentLoaded', function() {
-    var icon = document.querySelector('#pastak-moving-icon')
+    var author = document.documentElement.dataset.author
+    var authorIconUrl = 'http://cdn1.www.st-hatena.com/users/' + author.substr(0,2) + '/' + author + '/profile.gif'
+    var icon = document.createElement('img')
+    icon.src = authorIconUrl
+    document.body.appendChild(icon)
+    
     var subscribers = Array.prototype.slice.apply(document.querySelectorAll('.subscriber > img'))
     .map(function (subscriber) {
       var elm = document.createElement('img')
