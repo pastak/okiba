@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title></title>
+	<script async src='canvas-resize.js'></script>
+	<style>
+		canvas {
+			border: 1px solid #333;
+		}
+		.canvas-container {
+			float: left;
+			margin-left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class='canvas-container'>
+		<canvas class='canvas' id='canvas1' width='300' height='300'></canvas>
+	</div>
+	<div class='canvas-container'>
+		<canvas class='canvas' id='canvas2' width='300' height='300'></canvas>
+	</div>
+	<br style='clear:left' />
+	<button id='btn0'>左をプロパティ右をCSSで拡大する</button><br />
+	<button id='btn1'>左をプロパティ右をCSSで拡大する（その後再描画）</button><br />
+	<button id='btn2'>右を縦横2倍に拡大</button><br />
+	<button id='btnReset'>リセット</button>
+	<img id='image' src='image.png' style='display:none;' />
+</body>
+</html>
