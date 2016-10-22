@@ -16,7 +16,7 @@ const drawCircle = (canvas, rate = 1.0) => {
   context.arc(100 * rate, 75 * rate, 50 * rate, 0 * rate, 2*Math.PI)
   context.fillStyle = 'rgb(254, 98, 98)'
   context.fill()
-  context.lineWidth = 7
+  context.lineWidth = 7 * rate
   context.strokeStyle = 'rgb(0, 0, 0)'
   context.stroke()
 }
@@ -54,7 +54,7 @@ document.getElementById('btn1').addEventListener('click', () => {
 
 document.getElementById('btn2').addEventListener('click', () => {
   [...document.querySelectorAll('canvas')].forEach((canvas) => {
-    if (canvas.id === 'canvas2') {
+    if (canvas.id === 'canvas1') {
       canvas.width = 600
       canvas.height = 600
       drawCircle(canvas, 2.0)
