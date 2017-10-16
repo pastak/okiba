@@ -1,0 +1,24 @@
+{
+  "name": "scrapbox-userjs-collection",
+  "version": "1.0.0",
+  "author": "pastak",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "yarn build:development && yarn build:minify",
+    "build:development": "ls src/*.js | sed -e \"s/src\\///g\" | xargs -I{} sh -c \"rollup src/{} -f iife -c -o dist/{}\"",
+    "build:minify": "ls dist/*.js | sed -e \"s/dist\\///g\" | xargs -I{} sh -c \"uglifyjs --compress --mangle -o dist/{} dist/{}\""
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "browserify": "^14.4.0",
+    "md2sb": "^0.3.3",
+    "rollup": "^0.50.0",
+    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "uglify-es": "^3.1.3"
+  }
+}
