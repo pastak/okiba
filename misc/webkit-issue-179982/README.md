@@ -43,3 +43,11 @@
     max-height: calc(100% - 200px); /* No Problem with max-height */
 }
 ```
+
+### 詳細
+
+[https://github.com/WebKit/webkit/commit/b07064edc57a7789995d6134c20cd5471885f8d7](修正のコメント)ではcss transitionを使用していて且つ`calc()`で`100% - 10px`などのように組み合わせた際に、CPU使用率が上がるということが書かれているが、このときに **その要素のサイズがCSSで指定されている** と、CPU使用率が上がるだけでなく、`calc()`の実行に失敗し、要素のサイズの変更が元々与えられていたCSSにfailbackするので、サイズが変更しないようにユーザーに表示される。（アニメーションする前のサイズが指定されていない場合はCPU使用率が上がるだけでサイズの変更自体は実行される。上記の再現で`#testdiv`の`height: 100%` を無効にすることで確認できる）
+
+#### Work Arround
+
+- `height`や`width`では発生するが、`(min|max)-(height|width)`では`calc()`を正常に利用できるので、これらで大体するという作戦がある
