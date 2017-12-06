@@ -1,0 +1,29 @@
+<style>
+html,body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#testdiv {
+    height: 100%;
+    background-color: inherit; /* needed to dodge the matched properties cache */
+    border-bottom: 10px solid red;
+    box-sizing: border-box;
+}
+#testdiv.test {
+    transition: 1s;
+    height: calc(100% - 200px); /* calc compares inequal with the same exact calc value */
+}
+#testdiv.test-np {
+    transition: 1s;
+    max-height: calc(100% - 200px); /* No Problem with max-height */
+}
+</style>
+<div>
+<div id=testdiv></div>
+<div style='position:fixed;top:0'>
+  <button onclick="testdiv.className = '';testdiv.classList.add('test')">test</button><br />
+  <button onclick="testdiv.className = '';testdiv.classList.add('test-np')">np</button><br />
+  UserAgent: <script>document.write(navigator.userAgent)</script>
+</div>
+</div>
