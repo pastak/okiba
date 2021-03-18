@@ -60,10 +60,8 @@
     window.addEventListener('mousemove', updateIcons)
     document.addEventListener('scroll', updateIcons)
   }
-  console.log('a', document.readyState)
   if (document.readyState === 'complete') return init();
   document.addEventListener('readystatechange', function () {
-    console.log('b', document.readyState)
     if (document.readyState === 'complete') init();
   })
 })()
