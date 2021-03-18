@@ -1,5 +1,5 @@
 (function(){
-  document.addEventListener('DOMContentLoaded', function() {
+  function init() {
     var author = document.documentElement.dataset.author
     var authorIconUrl = 'http://cdn1.www.st-hatena.com/users/' + author.substr(0,2) + '/' + author + '/profile.gif'
     var icon = document.createElement('img')
@@ -59,5 +59,9 @@
     }
     window.addEventListener('mousemove', updateIcons)
     document.addEventListener('scroll', updateIcons)
+  }
+  if (document.readyState === 'complete') return init();
+  document.addEventListener('readystatechange', function () {
+    if (document.readyState === 'complete') init();
   })
 })()
